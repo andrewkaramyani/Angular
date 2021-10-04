@@ -1,0 +1,33 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="insertRecord(form)">
+    <input type="hidden" name="paymentDetailId" [value]="EmployeesService.formData.id" />
+    <div class="form-group col-lg-6 col-sm-12">
+        <label class="font-weight-bold">Employee Name</label>
+        <input class="form-control form-control" placeholder="Full Name" name="name"
+            #name="ngModel" [(ngModel)]="EmployeesService.formData.name"
+            required [class.invalid]="name.invalid && name.touched">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-lg-6 col-sm-12">
+            <label>Email</label>
+            <input class="form-control form-control" placeholder="email" name="email"
+                #email="ngModel" [(ngModel)]="EmployeesService.formData.email"
+                required  [class.invalid]="email.invalid && email.touched"
+                pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$">
+        </div>
+    </div>
+    <div class="form-row">
+      <div class="form-row">
+        <div class="form-group col-lg-6 col-sm-12">
+            <label>Phone Number</label>
+            <input class="form-control form-control" placeholder="Phone Number" name="phoneNumber"
+                #phoneNumber="ngModel" [(ngModel)]="EmployeesService.formData.phoneNumber"
+                required  [class.invalid]="phoneNumber.invalid && phoneNumber.touched"
+                pattern="^01[0-2][0-9]{8}">
+        </div>
+    </div>
+    
+  </div>
+    <div class="form-group">
+        <button class="btn btn-primary  btn-block m-1 btn_orange" type="submit" [disabled]="form.invalid">SUBMIT</button>
+    </div>
+  </form>

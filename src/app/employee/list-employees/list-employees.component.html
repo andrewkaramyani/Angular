@@ -1,0 +1,35 @@
+<div class="card m-1" *ngFor="let employee of EmployeesService.listEmployees">
+    <div class="card-body">  
+    <div class="card-title">
+        <h3 class="panel-title">{{employee.name}}</h3>
+      </div>
+        <div class="col-xs-10">  
+          <div class="row vertical-align">
+            <div class="col-xs-8">
+              <div class="row">
+                <div class="col-3">
+                  Email
+                </div>
+                <div class="col-3">
+                  : {{employee.email}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-3">
+                  Phone Number
+                </div>
+                <div class="col-5">
+                  : {{employee.phoneNumber}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        <button class='btn btn-primary col-1 m-1' (click)='getEmployee(employee.id)'>Edit</button>
+        <button class='btn btn-danger col-1 m-1' (click)='DeleteEmployee(employee.id)'>Delete</button>
+      </div>
+      </div>
+    </div>
+  
+    
